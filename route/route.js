@@ -76,5 +76,9 @@ router.post("/logout",async (req,res)=>{
     res.json({ message: 'Logout Berhasil' });
 })
 
+router.get("/",(req,res)=>{
+    return res.json("Gaboleh ya")
+})
+
 
 module.exports = { router,query }
