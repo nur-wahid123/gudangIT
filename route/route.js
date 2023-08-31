@@ -76,7 +76,7 @@ router.post("/api/logout",async (req,res)=>{
     res.json({ message: 'Logout Berhasil' });
 })
 
-router.get("/api",(req,res)=>{
+router.get("/api",(req,res)=>{ 
     return res.json("Gaboleh ya")
 })
 
