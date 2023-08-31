@@ -9,7 +9,7 @@ const { verificatedRoute } = require('../protected/protected');
 
 const query = util.promisify(conn.query).bind(conn);
 
-router.post("/register", async function (req, res) {
+router.post("/api/register", async function (req, res) {
     const { name, username, email, password, passConf } = req.body;
 
     if (password !== passConf) {
@@ -37,7 +37,7 @@ router.post("/register", async function (req, res) {
     }
 });
 
-router.post("/login", async (req, res) => {
+router.post("/api/login", async (req, res) => {
     let { username, password } = req.body
     const user = await query(`select * from admin where username = ?`, [username])
     if (user.length == 0) return res.json({ error: "Username tidak ditemukan" })
@@ -50,7 +50,7 @@ router.post("/login", async (req, res) => {
     return res.json({ message: "Selamat Datang",token:token })
 })
 
-router.post("/data/:data",verificatedRoute, async (req, res) => {
+router.post("/api/data/:data",verificatedRoute, async (req, res) => {
     const table = req.params.data;
     const allowedTables = ["barang", "admin"];
 
@@ -66,7 +66,7 @@ router.post("/data/:data",verificatedRoute, async (req, res) => {
     }
 });
 
-router.post("/logout",async (req,res)=>{
+router.post("/api/logout",async (req,res)=>{
     const token = req.headers.authorization;
     console.log(req.headers);
     let stoken = token.split(" ")
@@ -76,7 +76,7 @@ router.post("/logout",async (req,res)=>{
     res.json({ message: 'Logout Berhasil' });
 })
 
-router.get("/",(req,res)=>{
+router.get("/api/",(req,res)=>{
     return res.json("Gaboleh ya")
 })
 
