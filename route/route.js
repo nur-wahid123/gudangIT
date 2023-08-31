@@ -79,6 +79,9 @@ router.post("/api/logout",async (req,res)=>{
 router.get("/api",(req,res)=>{ 
     return res.json("Gaboleh ya")
 })
+router.get("/",(req,res)=>{ 
+    return res.json("Gaboleh itu ya")
+})
 
 
 module.exports = { router,query }
