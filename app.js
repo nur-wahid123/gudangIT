@@ -9,7 +9,7 @@ dotenv.config()
 const app = express()
 app.use(cookie())
 app.use(cors({
-    origin: 'http://localhost:3000', // Allow requests from this origin
+    origin: 'https://www.gudang.indranurwahid.my.id', // Allow requests from this origin
     credentials: true // Allow cookies and other credentials
 }));
 app.use(express.json())
