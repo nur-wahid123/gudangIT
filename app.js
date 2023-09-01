@@ -8,10 +8,7 @@ dotenv.config()
 
 const app = express()
 app.use(cookie())
-app.use(cors({
-    origin: 'https://www.gudangit.indranurwahid.my.id', // Allow requests from this origin
-    credentials: true // Allow cookies and other credentials
-}));
+app.use(cors());
 app.use(express.json())
 app.use(router)
 app.listen(5000, () => console.log("server running port 5000"))
