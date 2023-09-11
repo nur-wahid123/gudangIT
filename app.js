@@ -9,7 +9,7 @@ const corsOptions = {
     origin: 'https://www.gudangit.indranurwahid.my.id',
     credentials: true, // Enable credentials (cookies, etc.)
   };
-
+//halooo
 const app = express()
 app.use(cookie())
 app.use(cors(corsOptions));
